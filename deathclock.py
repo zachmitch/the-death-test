@@ -11,6 +11,11 @@ import csv
 
 #- - - - - - -BASIC INPUTS - - - - - -
 
+no = ('no', "n", 'nope')
+yes = ('yes', 'y', 'yep', 'yup')
+
+extended_test = raw_input('Do you want to take the extended test? Y or N: ')
+
 
 # DATE OF BIRTH
 
@@ -74,7 +79,54 @@ for row in life_expect:
 
 			
 life_expect = int(life_expect)
-		
+
+
+# - - - -  - EXTENDED TEST CALCULATIONS - - - - - - - 
+
+
+# All calculations will affect only the life_expect base variable
+
+
+#Smoking Cigarettes
+#According to NYT article heavy smokers can estimate 10yrs off life expectancy #http://well.blogs.nytimes.com/2013/01/23/putting-a-number-to-smokings-toll/
+
+def cigs(prompt):
+	if prompt in no:
+		return 0
+	elif prompt in yes:
+		cigs_heavy = (raw_input("Would you say that you are a heavy smoker?  Do you smoke more than a pack a day? "))
+		if cigs_heavy in yes:
+			return -3650 
+		else:
+			cigs_num = int(raw_input("So then, 1-20, how many cigs do you smoke a day? "))
+			while cigs_num not in range(1,20):
+				cigs_num = int(raw_input("So then, 1-20, how many cigs do you smoke a day? "))
+			return cigs_num * -183
+			
+#Drinking alcohol
+#http://www.psmag.com/health-and-behavior/truth-wont-admit-drinking-healthy-87891
+#this questionnaire takes the position that low-moderate consumption isn't unhealthy (double negative for impact), but extended binge drinking is.
+
+def alcohol(prompt):
+	if prompt in no:
+		return -365
+	else:
+		alcohol_heavy = (raw_input("When you drink, do you binge drink? "))
+		if alcohol_heavy in no:
+			return 0
+		else:
+			alcohol_heavy_times = int(raw_input("How many days a week do you binge drink? "))
+			return alcohol_heavy_times * -525
+
+
+
+life_choices = 0 # number that will +- days to your life based on your behavior
+genetics = 0 # number that will +- days to your life based on your genes
+
+if extended_test in yes:
+	life_choices =  int(cigs(raw_input("Do you smoke cigarettes? ").lower())) + int(alcohol(raw_input("Do you drink alcohol? ").lower()))
+	life_expect = life_expect + life_choices
+
 #- - - - BASIC CALCULATIONS - - - - - - - 
 
 #AGE 

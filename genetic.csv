@@ -1,0 +1,17 @@
+Genetic,Effect
+Type 1 Diabetes,-0.23
+Type 2 Diabetes,-0.119
+Hypertension,-0.0566
+Small Cell Lung Cancer,-0.843
+Non-Small Cell Lung Cancer,-0.386
+Idiopathic/Crytogenic Epilepsy,-0.021
+Symptomatic Epilepsy,-0.1282
+HIV (with treatment),-0.0713
+AIDS (untreated),-0.963
+Congestive heart failure,-0.499
+COPD,-0.041
+Kidney/Renal Disease,-0.219
+Stroke,-0.341
+Alzheimer's,-0.687
+MS,-0.0789
+ALS,-0.929

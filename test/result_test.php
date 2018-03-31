@@ -121,30 +121,12 @@
 
     <!-- Custom styles for this template -->
     <link href="css/grayscale.min.css" rel="stylesheet">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116497449-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-116497449-1');
-    </script>
 
 
 
   </head>
 
   <body id="page-top">
-
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=150549382427579&autoLogAppEvents=1';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -160,7 +142,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h1>Mark your Calendar</h1></br>
+            <h1>Set your Calendar</h1></br>
 
             <?php
                   echo "<h4>You will die on </br>".$deathDate."</h4>";
@@ -168,10 +150,6 @@
             ?>
             <div class = "text-center">
               <canvas  class="img-fluid" id="myCanvas" width="750" height="750" style="display: block;"></canvas>
-
-              <div class="fb-like" data-href="http://www.thedeathtest.com" data-layout="button"
-              data-action="like" data-size="small" data-show-faces="false" data-share="true">
-              </div>
               <div>
               <h4>Causes of death</h4>
 
@@ -203,10 +181,7 @@
                         echo "<h2 class='lead'>Old age, I guess.</h2>";
                     }
                 } else{
-                  echo "<script type=\"text/javascript\">
-                        window.location.replace('http://www.thedeathTest.com');
-                        </script>";
-                  exit();
+                    echo "ERROR: Could not execute $sql. " . mysqli_error($link);
                 }
                 // End request
                 mysqli_close($link);
@@ -224,9 +199,8 @@
 
     <!-- Footer -->
     <footer>
-      <div class="container text-center" >
-        <p>Copyright &copy; TheDeathTest.com 2017-2018</p>
-        <p><a href="http://www.TheDeathTest.com/privacy.php">Privacy Policy</a></p>
+      <div class="container text-center">
+        <p>Copyright &copy; TheDeathTest.com 2018</p>
       </div>
     </footer>
 

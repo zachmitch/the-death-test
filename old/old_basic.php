@@ -1,5 +1,8 @@
 <?php
 
+  //Used as reference for PHP, Tutorial Republic
+  //https://www.tutorialrepublic.com/php-tutorial/php-mysql-crud-application.php
+
   //Start session for keeping user info across pages
   session_start();
 
@@ -17,16 +20,14 @@
   if($_SERVER["REQUEST_METHOD"]=="POST") {
 
       //validate birthday
-      $input_month = trim($_POST["month"]);
-      $input_day = trim($_POST["day"]);
-      $input_year = trim($_POST["year"]);
-      if(empty($input_month)||empty($input_day)||empty($input_year)){
+      $input_bday = trim($_POST["bday"]);
+      if(empty($input_bday)){
         //error handling
         $bday_err = "Please enter your birthday.";
       } else {
-        $bday = (string)($input_year."-".$input_month."-".$input_day);
+        $bday = $input_bday;
         //Also save bday in session for later comparison
-        $_SESSION["s_bday"] = $bday;
+        $_SESSION["s_bday"] = $input_bday;
       }
 
       //Validate country
@@ -87,7 +88,7 @@
             if($yChrom !== 'oAge' && $yChrom !== 'fAge' && $yChrom !== 'mAge'){
               //Exit page and exit website
               echo "<script type=\"text/javascript\">
-                    window.location.replace('http://www.thedeathtest.com');
+                    window.location.replace('http://www.thedeathquiz.com');
                     </script>";
               exit();
             }
@@ -98,7 +99,7 @@
               //Exit page and exit website
 
               echo "<script type=\"text/javascript\">
-                    window.location.replace('http://www.thedeathtest.com');
+                    window.location.replace('http://www.thedeathquiz.com');
                     </script>";
               exit();
             }
@@ -164,10 +165,14 @@
     <meta name="description" content="A death test quiz">
     <meta name="author" content="Zach Mitchell">
 
-    <title>The Death Test: Find Out When You Will Die</title>
+    <title>The Death Quiz: Find Out When You Will Die</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Date dropper CSS -->
+    <link href="css/datedropper.css" rel="stylesheet" type="text/css" />
+    <link href="css/my-style.css" rel="stylesheet" type="text/css" />
 
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -177,26 +182,21 @@
     <!-- Custom styles for this template -->
     <link href="css/grayscale.min.css" rel="stylesheet">
 
+
+    <!-- Date picker-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/datedropper.js"></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116497449-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'UA-116497449-1');
-    </script>
 
   </head>
 
   <body id="page-top">
 
-    <!-- Navigation-->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.php">The Death Test</a>
+        <a class="navbar-brand js-scroll-trigger" href="index.php">The Death Quiz</a>
 
       </div>
     </nav>
@@ -212,187 +212,19 @@
               <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                   <!--GET BIRTHDAY-->
                 <div class="form-group <?php echo (!empty($bday_err)) ? 'has-error' : ''; ?>" >
-                  <h4>Your birthday: </h4>
-                  <div>
-                    <select name="month" value="<?php echo $bday_month; ?>">
-                      <option value="">MONTH</option>
-                      <option value="01">January</option>
-                      <option value="02">February</option>
-                      <option value="03">March</option>
-                      <option value="04">April</option>
-                      <option value="05">May</option>
-                      <option value="06">June</option>
-                      <option value="07">July</option>
-                      <option value="08">August</option>
-                      <option value="09">September</option>
-                      <option value="10">October</option>
-                      <option value="11">November</option>
-                      <option value="12">December</option>
-                    </select>
-                    <select name="day" value="<?php echo $bday_day; ?>">
-                      <option value="">DAY</option>
-                      <option value="01">1</option>
-                      <option value="02">2</option>
-                      <option value="03">3</option>
-                      <option value="04">4</option>
-                      <option value="05">5</option>
-                      <option value="06">6</option>
-                      <option value="07">7</option>
-                      <option value="08">8</option>
-                      <option value="09">9</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                      <option value="13">13</option>
-                      <option value="14">14</option>
-                      <option value="15">15</option>
-                      <option value="16">16</option>
-                      <option value="17">17</option>
-                      <option value="18">18</option>
-                      <option value="19">19</option>
-                      <option value="20">20</option>
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                    </select>
-                    <select name="year" value="<?php echo $bday_year; ?>">
-                      <option value="">YEAR</option>
-                      <option value="2018">2018</option>
-                      <option value="2017">2017</option>
-                      <option value="2016">2016</option>
-                      <option value="2015">2015</option>
-                      <option value="2014">2014</option>
-                      <option value="2013">2013</option>
-                      <option value="2012">2012</option>
-                      <option value="2011">2011</option>
-                      <option value="2010">2010</option>
-                      <option value="2009">2009</option>
-                      <option value="2008">2008</option>
-                      <option value="2007">2007</option>
-                      <option value="2006">2006</option>
-                      <option value="2005">2005</option>
-                      <option value="2004">2004</option>
-                      <option value="2003">2003</option>
-                      <option value="2002">2002</option>
-                      <option value="2001">2001</option>
-                      <option value="2000">2000</option>
-                      <option value="1999">1999</option>
-                      <option value="1998">1998</option>
-                      <option value="1997">1997</option>
-                      <option value="1996">1996</option>
-                      <option value="1995">1995</option>
-                      <option value="1994">1994</option>
-                      <option value="1993">1993</option>
-                      <option value="1992">1992</option>
-                      <option value="1991">1991</option>
-                      <option value="1990">1990</option>
-                      <option value="1989">1989</option>
-                      <option value="1988">1988</option>
-                      <option value="1987">1987</option>
-                      <option value="1986">1986</option>
-                      <option value="1985">1985</option>
-                      <option value="1984">1984</option>
-                      <option value="1983">1983</option>
-                      <option value="1982">1982</option>
-                      <option value="1981">1981</option>
-                      <option value="1980">1980</option>
-                      <option value="1979">1979</option>
-                      <option value="1978">1978</option>
-                      <option value="1977">1977</option>
-                      <option value="1976">1976</option>
-                      <option value="1975">1975</option>
-                      <option value="1974">1974</option>
-                      <option value="1973">1973</option>
-                      <option value="1972">1972</option>
-                      <option value="1971">1971</option>
-                      <option value="1970">1970</option>
-                      <option value="1969">1969</option>
-                      <option value="1968">1968</option>
-                      <option value="1967">1967</option>
-                      <option value="1966">1966</option>
-                      <option value="1965">1965</option>
-                      <option value="1964">1964</option>
-                      <option value="1963">1963</option>
-                      <option value="1962">1962</option>
-                      <option value="1961">1961</option>
-                      <option value="1960">1960</option>
-                      <option value="1959">1959</option>
-                      <option value="1958">1958</option>
-                      <option value="1957">1957</option>
-                      <option value="1956">1956</option>
-                      <option value="1955">1955</option>
-                      <option value="1954">1954</option>
-                      <option value="1953">1953</option>
-                      <option value="1952">1952</option>
-                      <option value="1951">1951</option>
-                      <option value="1950">1950</option>
-                      <option value="1949">1949</option>
-                      <option value="1948">1948</option>
-                      <option value="1947">1947</option>
-                      <option value="1946">1946</option>
-                      <option value="1945">1945</option>
-                      <option value="1944">1944</option>
-                      <option value="1943">1943</option>
-                      <option value="1942">1942</option>
-                      <option value="1941">1941</option>
-                      <option value="1940">1940</option>
-                      <option value="1939">1939</option>
-                      <option value="1938">1938</option>
-                      <option value="1937">1937</option>
-                      <option value="1936">1936</option>
-                      <option value="1935">1935</option>
-                      <option value="1934">1934</option>
-                      <option value="1933">1933</option>
-                      <option value="1932">1932</option>
-                      <option value="1931">1931</option>
-                      <option value="1930">1930</option>
-                      <option value="1929">1929</option>
-                      <option value="1928">1928</option>
-                      <option value="1927">1927</option>
-                      <option value="1926">1926</option>
-                      <option value="1925">1925</option>
-                      <option value="1924">1924</option>
-                      <option value="1923">1923</option>
-                      <option value="1922">1922</option>
-                      <option value="1921">1921</option>
-                      <option value="1920">1920</option>
-                      <option value="1919">1919</option>
-                      <option value="1918">1918</option>
-                      <option value="1917">1917</option>
-                      <option value="1916">1916</option>
-                      <option value="1915">1915</option>
-                      <option value="1914">1914</option>
-                      <option value="1913">1913</option>
-                      <option value="1912">1912</option>
-                      <option value="1911">1911</option>
-                      <option value="1910">1910</option>
-                      <option value="1909">1909</option>
-                      <option value="1908">1908</option>
-                      <option value="1907">1907</option>
-                      <option value="1906">1906</option>
-                      <option value="1905">1905</option>
-                      <option value="1904">1904</option>
-                      <option value="1903">1903</option>
-                      <option value="1902">1902</option>
-                      <option value="1901">1901</option>
-                      <option value="1900">1900</option>
-                    </select>
-                  </div>
+                  <h5>Your birthday: </h5>
+                  <input type="text" name="bday" value="" data-format="Y-m-d" data-min-year="1910"
+                  data-theme="my-style"  data-large-default="true" style="text-align: center; ">
+                  <script>
+                    $('input').dateDropper();
+                  </script>
                   <div>
                     <span class="help-block err-show"><?php echo $bday_err;?></span>
                   </div>
                 </div>
                   <!--GET COUNTRY-->
                 <div class="form-group">
-                    <h4>Choose your country of residence: </h4>
+                    <h5>Choose your country of residence: </h5>
                     <select name="country" value="<?php echo $country; ?>">
                       <option value=188>United States</option>
                       <option value=1>Afghanistan</option>
@@ -595,14 +427,15 @@
                 </div>
                   <!--ADD SEX-->
                 <div class="form-group">
-                    <h4>Do you have a Y-Chromosome? (Male/Female)</h4>
+                    <h5>Do you have a Y-Chromosome? (Male/Female)</h5>
                     <select name="yChrom" value="<?php echo $yChrom; ?>">
                       <option value=fAge>Female</option>
                       <option value=mAge>Male</option>
+                      <option value=oAge>N/A</option>
                     </select>
                 </div>
 
-                <input type="submit" class="btn btn-primary" style="background-color: #46ba88; border-color: #fff;"  value="Submit">
+                <input type="submit" class="btn btn-primary" value="Submit">
               </form>
           </div>
         </div>
@@ -611,19 +444,11 @@
 
     <!-- Footer -->
 
-    <script>
-          $(document).ready(function(){
 
-              $('.dropdate').dropdate({
-                dateFormat:'mm/dd/yyyy'
-              });
-          });
-    </script>
 
     <footer>
-      <div class="container text-center" >
-        <p>Copyright &copy; TheDeathTest.com 2017-2018</p>
-        <p><a href="http://www.TheDeathTest.com/privacy.php">Privacy Policy</a></p>
+      <div class="container text-center">
+        <p>Copyright &copy; TheDeathTest.com 2018</p>
       </div>
     </footer>
 

@@ -1,0 +1,66 @@
+Behavior,Effect,COD,COD Chance
+BMI < 17,-0.0256,Heart Disease,0.17
+BMI 17-22,-0.0103,Heart Disease,0.19
+BMI 22-25,0,Heart Disease,0.21
+BMI 25-30,-0.0053,Heart Disease,0.24
+BMI 30-35,-0.022,Heart Disease,0.30
+BMI 35-40,-0.0568,Heart Disease,0.36
+BMI 40-45,-0.0887,Heart Disease,0.4
+BMI 45+,-0.143,Heart Disease,0.42
+WTH < 0.36,-0.0256,Heart Disease,0.17
+WTH 0.36 - 0.4,-0.0103,Heart Disease,0.19
+WTH 0.4 - 0.46,-0.0058,Heart Disease,0.21
+WTH 0.46 - 0.54,0,Heart Disease,0.24
+WTH 0.54 - 0.6,-0.0151,Heart Disease,0.3
+WTH 0.6 - 0.7,-0.022,Heart Disease,0.36
+WTH 0.7 - 0.8,-0.0583,Heart Disease,0.42
+WTH 0.8+,-0.143,Heart Disease,0.46
+Daily Cigarette Smoker - 11+,-0.103,Metastic Lung Cancer,0.31
+Daily Cigarette Smoker 1-10,-0.073,COPD,0.26
+Occassional Cigarette Smoker,-0.0183,Invasive Cancer,0.22
+Never Smoke Cigarette,0,Invasive Cancer,0.2
+Exercise 5+ week,0.0193,placeholder,0
+Exercise 2-4 week,0.0641,placeholder,0
+Exercise 1 week,0.00965,placeholder,0
+No exercise,-0.009,placeholder,0
+Alcoholic - 50+/drinks week,-0.23,Liver Disease,0.19
+Heavy Drinker - 20-40/drinks week,-0.117,Hepatitis,0.13
+Light Drinker 5-10/drinks week,-0.0233,Negligence at work,0.08
+Little to no drinking,0,Struck by a drunk driver (ironic),0.04
+Commute on a motorcycle,-0.039,Motorcycle Accident,0.06
+Frequent Exposure to fire/flames,-0.028,3rd Degree Burns,0.03
+Suicidal Thoughts,-0.023,Suicide,0.04
+Suicidal Intent,-0.142,Suicide,0.23
+Sleep < 5 hours night,-0.069,Falling asleep while driving,0.06
+Sleep 6 - 9 hours night,0.0111,Car accident while running late,0.04
+Sleep 10 + hours night,-0.0213,Hazardous gas leak,0.04
+Heroin Addiction,-0.51,Heroin Overdose,0.39
+Cocaine Addiction,-0.44,Heart Attack,0.34
+Methadone Addiction,-0.58,Overdose,0.29
+Methamphetamine Addiction,-0.81,Cardiac Arrest,0.41
+Health 1,-0.10,placeholder,0
+Health 2,-0.08,placeholder,0
+Health 3,-0.06,placeholder,0
+Health 4,-0.04,placeholder,0
+Health 5,-0.02,placeholder,0
+Health 6,0,placeholder,0
+Health 7,0.02,placeholder,0
+Health 8,0.04,placeholder,0
+Health 9,0.06,placeholder,0
+Health 10,0.08,placeholder,0
+Risk 1,0.06,Falling out of bed,0.03
+Risk 2,0.06,Knitting accident,0.03
+Risk 3,0.06,Contracting norovirus while gardening,0.02
+Risk 4,0.04,Falling down the stairs,0.04
+Risk 5,0.02,Infected paper cut from favorite book,0.05
+Risk 6,0.02,Bit by an infectious mosquito,0.04
+Risk 7,0,Mocked the president on Twitter,0.04
+Risk 8,0,Drowning in swimming pool,0.03
+Risk 9,-0.01,Segway tour tragedy,0.03
+Risk 10,-0.02,Your hot air balloon catches fire,0.04
+Risk 11,-0.02,You drank the local water on vacation,0.05
+Risk 12,-0.03,Your tuk-tuk rolls while on vacation,0.04
+Risk 13,-0.06,Base Jumping Parachute Failure,0.07
+Risk 14,-0.06,Infected prison tattoo,0.05
+Risk 15,-0.06,Trampled while bull riding,0.07
+,,,

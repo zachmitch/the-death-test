@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,14 +22,6 @@
 
     <!-- Custom styles for this template -->
     <link href="css/grayscale.min.css" rel="stylesheet">
-
-    <meta property="og:url"                content="http://www.TheDeathTest.com" />
-    <meta property="og:type"               content="website" />
-    <meta property="og:title"              content="The Death Test" />
-    <meta property="og:description"        content="Find Out When You Will Die" />
-    <meta property="og:image"              content="http://www.TheDeathTest.com/img/tdt_logo_sized.jpg" />
-    <meta property="fb:app_id"             content=150549382427579 />
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116497449-1"></script>
     <script>
@@ -43,7 +37,7 @@
   </head>
 
   <body id="page-top">
-    <!-- Load Facebook SDK for JavaScript -->
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -52,7 +46,8 @@
       js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=150549382427579&autoLogAppEvents=1';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    <!-- Navigation -->
+
+    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="index.php">The Death Test</a>
@@ -60,41 +55,25 @@
       </div>
     </nav>
 
-    <!-- Intro Header -->
-    <header class="masthead">
-      <div class="intro-body">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <h1 class="brand-heading">Time is Ticking</h1>
-              <p class="intro-text">Find Out When You Will Die</p>
-              <a href="#about" class="btn btn-circle js-scroll-trigger">
-                <i class="fa fa-angle-double-down animated bounce"></i>
-              </a>
-          </div>
-        </div>
-      </div>
-    </header>
 
-    <!-- Test Section -->
-    <section id="about" class="content-section text-center">
+    <!-- About Section -->
+    <section id="thebasics" class="content-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h1>Quick and Easy, or Slow and Painful?</h1></br>
+            <h1>Privacy Policy</h1></br>
+            <h4>This is for fun.  We try really hard, but we cannot predict your actual death date.</h4>
+            <p>TheDeathTest.com and its company, Certainly.io, DO NOT share personal information of any kind. We are the sole owners of the information collected on this site.  We will not sell or rent your personal information to any third party. We DO NOT sell, rent or provide outside access to any data we store. Any data that a user supplies is used for the sole intent of creating a 'death date', the date of which is certainly uncertain.  We may in future times use the collected data to aggregate a demographic outlook of our responses.  In no way will your individual information be made available through this.</p>
+            <p>TheDeathTest.com only collects information that is necessary for you to obtain a 'death date'. This information includes, but is not limited to, birth date, country of residence, sex, smoking/drinking habits, risk aversion, health index, and other information necessary to generate a proper 'death date'.  We do not attach this information to your name, IP address, or any uniquely identifiable trace id.</p>
+            <p>We use cookies to maintain your inputs as you visit multiple pages on the site and connect the data points you give us.   Usage of a cookie is in no way linked to any personally identifiable information on our site.  Some of our business partners may use cookies on our site (for example, advertisers). However, we have no access to or control over these cookies.</p>
 
-            <h3><a href="basic.php" class="btn btn-default btn-lg">Basic Test</a></br></br><p>(10 Questions, Quicker)</p></h3>
-
-            <h3><a href="extended.php" class="btn btn-default btn-lg">Extended Test</a></br></br><p>(80 Questions, More Fun)</p></h3>
-
-            <div class="fb-like" data-href="http://www.thedeathtest.com" data-layout="button"
-            data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
-
-
+            <p>Sincerely, </p>
+            <h5>The Death Test</h5>
           </div>
         </div>
       </div>
     </section>
+
 
 
 
@@ -114,10 +93,14 @@
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-
     <!-- Custom scripts for this template -->
     <script src="js/grayscale.min.js"></script>
 
   </body>
 
+
 </html>
+<?php
+    session_unset();
+    session_write_close();
+ ?>

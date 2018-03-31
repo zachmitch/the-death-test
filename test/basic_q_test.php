@@ -15,7 +15,7 @@
           </script>";
     exit();
   }
-
+  
 
   // Include config file
   require_once 'config.php';
@@ -130,7 +130,7 @@
 
 
         echo "<script type=\"text/javascript\">
-              window.location.replace('/result.php');
+              window.location.replace('/result_test.php');
               </script>";
         exit();
 
@@ -170,16 +170,6 @@
     <!-- Custom styles for this template -->
     <link href="css/grayscale.min.css" rel="stylesheet">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116497449-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-116497449-1');
-    </script>
-
   </head>
 
   <body id="page-top">
@@ -199,7 +189,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h1>How do you do?</h1></br>
+            <h1>Basic Test Questions</h1></br>
 
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
@@ -220,7 +210,7 @@
                       <div class="inside_tab">
                         <div style="display: block;">
                           <div class="inputBlock">
-                            <label style="color: #42DCA3; white-space:nowrap; display: block;"for="hw1">Enter your Height</label><input type="number" step="0.5" id="hw1" name="measurement1[]" min=10 max=300 >
+                            <label style="color: #42DCA3; white-space:nowrap; display: block;"for="hw1">Enter your Height</label><input type="number" id="hw1" name="measurement1[]" min=10 max=300 >
                             </br><span class="help-block err-show"><?php echo $input_h_error;?></span>
                           </div>
                           <div class="inputBlock">
@@ -232,7 +222,7 @@
                         </div>
                         <div style="display: block;">
                           <div style="display: block;">
-                            <label style="color: #42DCA3; white-space:nowrap; display:block;"for="hw4">Enter your Weight</label><input type="number" step="0.5" id="hw4" name="measurement3[]" min=10 max=800 >
+                            <label style="color: #42DCA3; white-space:nowrap; display:block;"for="hw4">Enter your Weight</label><input type="number" id="hw4" name="measurement3[]" min=10 max=800 >
                             </br><span class="help-block err-show"><?php echo $input_w_error;?></span>
                           </div>
                           <div class="inputBlock">
@@ -248,7 +238,7 @@
                       <div class="inside_tab">
                         <div style="display: block;">
                           <div style="display: block;">
-                            <label style="color: #42DCA3; white-space:nowrap; display:block;"for="wth1">Enter your Height</label><input type="number" step="0.5" id="wth1" name="measurement1[]" min=10 max=300 >
+                            <label style="color: #42DCA3; white-space:nowrap; display:block;"for="wth1">Enter your Height</label><input type="number" id="wth1" name="measurement1[]" min=10 max=300 >
                             </br><span class="help-block err-show"><?php echo $input_h_error;?></span>
                           </div>
                           <div class="inputBlock">
@@ -260,7 +250,7 @@
                         </div>
                         <div style="display: block;">
                           <div style="display: block;">
-                            <label style="color: #42DCA3; white-space:nowrap; display:block;"for="wth4">Waist size <span style="display: block;"> (measure around you)</span></label><input type="number" step="0.5" id="wth4" name="measurement3[]" min=10 max=150 >
+                            <label style="color: #42DCA3; white-space:nowrap; display:block;"for="wth4">Waist size <span style="display: block;"> (measure around you)</span></label><input type="number" id="wth4" name="measurement3[]" min=10 max=150 >
                             </br><span class="help-block err-show"><?php echo $input_w_error;?></span>
                           </div>
                           <div class="inputBlock">
@@ -279,8 +269,8 @@
 
                 <!-- Get health slider -->
                 <div class="form-group <?php echo (!empty($general_err)) ? 'has-error' : ''; ?>">
-                  <h4>How healthy are you?</h4>
-                  <div class="content-slider" id="slider-step-value" style="font-size: 25px; margin: 15px;"></div>
+                  <h4>How healthy are you on a scale from 1-10?</h4>
+                  <div class="content-slider" id="slider-step-value" style="font-size: 50px; margin: 10px;"></div>
                   <div id="slider-step"><input type="hidden" id="healthScale" name="behavior[]" ></div>
                 </div>
 
@@ -375,9 +365,8 @@
 
     <!-- Footer -->
     <footer>
-      <div class="container text-center" >
-        <p>Copyright &copy; TheDeathTest.com 2017-2018</p>
-        <p><a href="http://www.TheDeathTest.com/privacy.php">Privacy Policy</a></p>
+      <div class="container text-center">
+        <p>Copyright &copy; TheDeathTest.com 2018</p>
       </div>
     </footer>
 

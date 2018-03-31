@@ -1,4 +1,6 @@
 <?php
+
+  //Initially calculate remaining life
   function remainingLife($currentAge, $avgLife){
       $currentAge = (float)$currentAge;
       $avgLife = (float)$avgLife;
@@ -76,5 +78,82 @@
       }
 
   return (int)$remainingDays;
-}
+  }
+
+  //Calculate bmi
+  //Assumes that height/weight are passed in metric form (cm, kg)
+  function bmi ($height, $weight) {
+
+      //Convert height to meter
+      $height /= 100.0;
+
+      $bmi = $weight / ($height * $height);
+
+      switch($bmi) {
+        case ($bmi >= 45):
+          $bmi = 8;
+          break;
+        case ($bmi >= 40):
+          $bmi = 7;
+          break;
+        case ($bmi >= 35):
+          $bmi = 6;
+          break;
+        case ($bmi >= 30):
+          $bmi = 5;
+          break;
+        case ($bmi >= 25):
+          $bmi = 4;
+          break;
+        case ($bmi >= 22):
+          $bmi = 3;
+          break;
+        case ($bmi >= 17):
+          $bmi = 2;
+          break;
+        default:
+          $bmi = 1;
+          break;
+      }
+
+      return $bmi;
+  }
+
+  //Calculate waist-to-height ratio
+  //Assumes the height/waist are passed in metric form (cm)
+
+  function wth ($height, $waist){
+
+    $ratio = ($waist / $height) * 1.0;
+
+    switch($ratio) {
+      case ($ratio >= .8):
+        $ratio = 16;
+        break;
+      case ($ratio >= .7):
+        $ratio = 15;
+        break;
+      case ($ratio >= .6):
+        $ratio = 14;
+        break;
+      case ($ratio >= .54):
+        $ratio = 13;
+        break;
+      case ($ratio >= .46):
+        $ratio = 12;
+        break;
+      case ($ratio >= .4):
+        $ratio = 11;
+        break;
+      case ($ratio >= .36):
+        $ratio = 10;
+        break;
+      default:
+        $ratio = 9;
+        break;
+    }
+
+    return $ratio;
+
+  }
 ?>
